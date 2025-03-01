@@ -4,11 +4,11 @@
 **KISANDHAN** is a smart agri-platform designed to help farmers get the **best market prices** for their crops with real-time updates, market trends, and procurement center locations.
 
 ## ✨ Features
-✅ **Real-time Price Comparison** 📊 – Get the best market rates instantly.
-✅ **MSP (Minimum Support Price) Updates** 💰 – Stay informed about government rates.
-✅ **Nearby Procurement Centers** 📍 – Find the closest selling points.
-✅ **Selling Deadlines & Alerts** ⏳ – Never miss an opportunity.
-✅ **Easy-to-Use Interface** 📱 – Hassle-free experience for all farmers.
+✅ **Real-time Price Comparison** 📊 – Get the best market rates instantly.  
+✅ **MSP (Minimum Support Price) Updates** 💰 – Stay informed about government rates.  
+✅ **Nearby Procurement Centers** 📍 – Find the closest selling points.  
+✅ **Selling Deadlines & Alerts** ⏳ – Never miss an opportunity.  
+✅ **Easy-to-Use Interface** 📱 – Hassle-free experience for all farmers.  
 
 ## 🚀 How It Works
 1️⃣ **Enter your crop details** 🌱
@@ -49,8 +49,9 @@
 We appreciate all contributions and suggestions to improve KISANDHAN! 🚀
 
 ## 📞 Contact
-For any queries or collaborations, feel free to reach out at **atharvbhosale00@gmail.com** 📧
+For any queries or collaborations, feel free to reach out at **infokisandhan@gmail.com** 📧
 
-
+## 📜 License
+This project is licensed under the **MIT License** 📝
 
 **KISANDHAN – Smart Farming, Better Earnings! 🌾✨**
