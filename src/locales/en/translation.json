@@ -1,0 +1,174 @@
+{
+  "app_name": "KisanDhan",
+  "tagline": "Smart Agriculture Platform",
+  "nav": {
+    "home": "Home",
+    "price_comparison": "Price Comparison",
+    "msp_information": "MSP Information",
+    "procurement_centers": "Procurement Centers",
+    "selling_deadlines": "Selling Deadlines",
+    "account": "My Account",
+    "admin": "Admin Dashboard",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout"
+  },
+  "language": {
+    "en": "English",
+    "hi": "Hindi",
+    "mr": "Marathi"
+  },
+  "user_type": {
+    "farmer": "Farmer",
+    "shopkeeper": "Shopkeeper",
+    "switch_to": "Switch to {{type}}"
+  },
+  "home": {
+    "welcome": "Welcome to KisanDhan",
+    "subtitle": "Empowering farmers with real-time market information",
+    "get_started": "Get Started",
+    "features": {
+      "title": "Key Features",
+      "price_comparison": {
+        "title": "Price Comparison",
+        "description": "Compare real-time market prices with MSP to make informed selling decisions"
+      },
+      "msp_info": {
+        "title": "MSP Information",
+        "description": "Access the latest Minimum Support Prices for all crops"
+      },
+      "procurement": {
+        "title": "Nearby Procurement Centers",
+        "description": "Find the closest centers to sell your crops at the best prices"
+      },
+      "deadlines": {
+        "title": "Selling Deadlines",
+        "description": "Never miss important crop selling deadlines"
+      }
+    }
+  },
+  "price_comparison": {
+    "title": "Price Comparison",
+    "select_crop": "Select Crop",
+    "market_price": "Current Market Price",
+    "msp": "Minimum Support Price",
+    "difference": "Difference",
+    "recommendation": "Recommendation",
+    "sell": "Good time to sell",
+    "wait": "Consider waiting",
+    "last_updated": "Last updated"
+  },
+  "msp_information": {
+    "title": "MSP Information",
+    "subtitle": "Latest Minimum Support Prices announced by the government",
+    "crop": "Crop",
+    "current_msp": "Current MSP (₹/Quintal)",
+    "previous_msp": "Previous MSP (₹/Quintal)",
+    "increase": "Increase (%)",
+    "effective_date": "Effective Date"
+  },
+  "procurement_centers": {
+    "title": "Procurement Centers",
+    "subtitle": "Find nearby centers to sell your crops",
+    "search": "Search by location",
+    "distance": "Distance",
+    "crops_accepted": "Crops Accepted",
+    "current_prices": "Current Prices",
+    "contact": "Contact",
+    "directions": "Get Directions",
+    "km_away": "{{distance}} km away"
+  },
+  "selling_deadlines": {
+    "title": "Selling Deadlines",
+    "subtitle": "Important dates for crop selling",
+    "crop": "Crop",
+    "start_date": "Start Date",
+    "end_date": "End Date",
+    "days_left": "Days Left",
+    "status": "Status",
+    "active": "Active",
+    "upcoming": "Upcoming",
+    "expired": "Expired",
+    "notification": "Set Notification"
+  },
+  "user_account": {
+    "title": "My Account",
+    "profile": "Profile",
+    "preferences": "Preferences",
+    "saved_centers": "Saved Centers",
+    "notifications": "Notifications",
+    "name": "Name",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "preferred_crops": "Preferred Crops",
+    "update": "Update Profile"
+  },
+  "shopkeeper": {
+    "dashboard": {
+      "title": "Shopkeeper Dashboard",
+      "welcome": "Welcome to your dashboard",
+      "manage_shops": "Manage Shops",
+      "manage_crops": "Manage Crops",
+      "view_stats": "View Statistics"
+    },
+    "add_shop": {
+      "title": "Add New Shop",
+      "shop_name": "Shop Name",
+      "address": "Address",
+      "contact": "Contact Number",
+      "description": "Description",
+      "crops_accepted": "Crops Accepted",
+      "add_shop": "Add Shop"
+    },
+    "manage_crops": {
+      "title": "Manage Crops",
+      "add_crop": "Add New Crop",
+      "crop_name": "Crop Name",
+      "current_price": "Current Price (₹/Quintal)",
+      "quantity_available": "Quantity Available (Quintals)",
+      "update_price": "Update Price",
+      "save": "Save Changes"
+    }
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "users": "Users",
+    "shops": "Shops",
+    "crops": "Crops",
+    "reports": "Reports",
+    "settings": "Settings"
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "remember": "Remember me",
+      "submit": "Login",
+      "forgot": "Forgot Password?",
+      "no_account": "Don't have an account?",
+      "register": "Register"
+    },
+    "register": {
+      "title": "Register",
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "password": "Password",
+      "confirm_password": "Confirm Password",
+      "user_type": "I am a",
+      "terms": "I agree to the Terms and Conditions",
+      "submit": "Register",
+      "have_account": "Already have an account?",
+      "login": "Login"
+    }
+  },
+  "footer": {
+    "about": "About Us",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2025 KisanDhan. All rights reserved."
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "app_name": "किसानधन",
+  "tagline": "स्मार्ट कृषि प्लेटफॉर्म",
+  "nav": {
+    "home": "होम",
+    "price_comparison": "मूल्य तुलना",
+    "msp_information": "एमएसपी जानकारी",
+    "procurement_centers": "खरीद केंद्र",
+    "selling_deadlines": "बिक्री की समय सीमा",
+    "account": "मेरा खाता",
+    "admin": "एडमिन डैशबोर्ड",
+    "login": "लॉगिन",
+    "register": "रजिस्टर",
+    "logout": "लॉगआउट"
+  },
+  "language": {
+    "en": "अंग्रेज़ी",
+    "hi": "हिंदी",
+    "mr": "मराठी"
+  },
+  "user_type": {
+    "farmer": "किसान",
+    "shopkeeper": "दुकानदार",
+    "switch_to": "{{type}} पर स्विच करें"
+  },
+  "home": {
+    "welcome": "किसानधन में आपका स्वागत है",
+    "subtitle": "किसानों को रीयल-टाइम बाजार जानकारी के साथ सशक्त बनाना",
+    "get_started": "शुरू करें",
+    "features": {
+      "title": "मुख्य विशेषताएं",
+      "price_comparison": {
+        "title": "मूल्य तुलना",
+        "description": "सूचित बिक्री निर्णय लेने के लिए रीयल-टाइम बाजार मूल्यों की एमएसपी के साथ तुलना करें"
+      },
+      "msp_info": {
+        "title": "एमएसपी जानकारी",
+        "description": "सभी फसलों के लिए नवीनतम न्यूनतम समर्थन मूल्य प्राप्त करें"
+      },
+      "procurement": {
+        "title": "नजदीकी खरीद केंद्र",
+        "description": "सर्वोत्तम मूल्य पर अपनी फसलें बेचने के लिए निकटतम केंद्र खोजें"
+      },
+      "deadlines": {
+        "title": "बिक्री की समय सीमा",
+        "description": "फसल बिक्री की महत्वपूर्ण समय सीमा कभी न चूकें"
+      }
+    }
+  },
+  "price_comparison": {
+    "title": "मूल्य तुलना",
+    "select_crop": "फसल चुनें",
+    "market_price": "वर्तमान बाजार मूल्य",
+    "msp": "न्यूनतम समर्थन मूल्य",
+    "difference": "अंतर",
+    "recommendation": "सिफारिश",
+    "sell": "बेचने का अच्छा समय",
+    "wait": "प्रतीक्षा करने पर विचार करें",
+    "last_updated": "अंतिम अपडेट"
+  },
+  "msp_information": {
+    "title": "एमएसपी जानकारी",
+    "subtitle": "सरकार द्वारा घोषित नवीनतम न्यूनतम समर्थन मूल्य",
+    "crop": "फसल",
+    "current_msp": "वर्तमान एमएसपी (₹/क्विंटल)",
+    "previous_msp": "पिछला एमएसपी (₹/क्विंटल)",
+    "increase": "वृद्धि (%)",
+    "effective_date": "प्रभावी तिथि"
+  },
+  "procurement_centers": {
+    "title": "खरीद केंद्र",
+    "subtitle": "अपनी फसलें बेचने के लिए नजदीकी केंद्र खोजें",
+    "search": "स्थान द्वारा खोजें",
+    "distance": "दूरी",
+    "crops_accepted": "स्वीकृत फसलें",
+    "current_prices": "वर्तमान मूल्य",
+    "contact": "संपर्क",
+    "directions": "दिशा-निर्देश प्राप्त करें",
+    "km_away": "{{distance}} किमी दूर"
+  },
+  "selling_deadlines": {
+    "title": "बिक्री की समय सीमा",
+    "subtitle": "फसल बिक्री के लिए महत्वपूर्ण तिथियां",
+    "crop": "फसल",
+    "start_date": "प्रारंभ तिथि",
+    "end_date": "अंतिम तिथि",
+    "days_left": "शेष दिन",
+    "status": "स्थिति",
+    "active": "सक्रिय",
+    "upcoming": "आगामी",
+    "expired": "समाप्त",
+    "notification": "अधिसूचना सेट करें"
+  },
+  "user_account": {
+    "title": "मेरा खाता",
+    "profile": "प्रोफाइल",
+    "preferences": "प्राथमिकताएं",
+    "saved_centers": "सहेजे गए केंद्र",
+    "notifications": "सूचनाएं",
+    "name": "नाम",
+    "phone": "फोन",
+    "email": "ईमेल",
+    "location": "स्थान",
+    "preferred_crops": "पसंदीदा फसलें",
+    "update": "प्रोफाइल अपडेट करें"
+  },
+  "shopkeeper": {
+    "dashboard": {
+      "title": "दुकानदार डैशबोर्ड",
+      "welcome": "आपके डैशबोर्ड में आपका स्वागत है",
+      "manage_shops": "दुकानें प्रबंधित करें",
+      "manage_crops": "फसलें प्रबंधित करें",
+      "view_stats": "आंकड़े देखें"
+    },
+    "add_shop": {
+      "title": "नई दुकान जोड़ें",
+      "shop_name": "दुकान का नाम",
+      "address": "पता",
+      "contact": "संपर्क नंबर",
+      "description": "विवरण",
+      "crops_accepted": "स्वीकृत फसलें",
+      "add_shop": "दुकान जोड़ें"
+    },
+    "manage_crops": {
+      "title": "फसलें प्रबंधित करें",
+      "add_crop": "नई फसल जोड़ें",
+      "crop_name": "फसल का नाम",
+      "current_price": "वर्तमान मूल्य (₹/क्विंटल)",
+      "quantity_available": "उपलब्ध मात्रा (क्विंटल)",
+      "update_price": "मूल्य अपडेट करें",
+      "save": "परिवर्तन सहेजें"
+    }
+  },
+  "admin": {
+    "title": "एडमिन डैशबोर्ड",
+    "users": "उपयोगकर्ता",
+    "shops": "दुकानें",
+    "crops": "फसलें",
+    "reports": "रिपोर्ट",
+    "settings": "सेटिंग्स"
+  },
+  "auth": {
+    "login": {
+      "title": "लॉगिन",
+      "email": "ईमेल",
+      "password": "पासवर्ड",
+      "remember": "मुझे याद रखें",
+      "submit": "लॉगिन",
+      "forgot": "पासवर्ड भूल गए?",
+      "no_account": "खाता नहीं है?",
+      "register": "रजिस्टर करें"
+    },
+    "register": {
+      "title": "रजिस्टर",
+      "name": "पूरा नाम",
+      "email": "ईमेल",
+      "phone": "फोन नंबर",
+      "password": "पासवर्ड",
+      "confirm_password": "पासवर्ड की पुष्टि करें",
+      "user_type": "मैं एक",
+      "terms": "मैं नियम और शर्तों से सहमत हूं",
+      "submit": "रजिस्टर",
+      "have_account": "पहले से ही खाता है?",
+      "login": "लॉगिन"
+    }
+  },
+  "footer": {
+    "about": "हमारे बारे में",
+    "contact": "संपर्क",
+    "privacy": "गोपनीयता नीति",
+    "terms": "सेवा की शर्तें",
+    "copyright": "© 2025 किसानधन. सर्वाधिकार सुरक्षित."
+  }
+}

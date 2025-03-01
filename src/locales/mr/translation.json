@@ -1,0 +1,174 @@
+{
+  "app_name": "किसानधन",
+  "tagline": "स्मार्ट कृषी प्लॅटफॉर्म",
+  "nav": {
+    "home": "होम",
+    "price_comparison": "किंमत तुलना",
+    "msp_information": "एमएसपी माहिती",
+    "procurement_centers": "खरेदी केंद्रे",
+    "selling_deadlines": "विक्री मुदत",
+    "account": "माझे खाते",
+    "admin": "अॅडमिन डॅशबोर्ड",
+    "login": "लॉगिन",
+    "register": "नोंदणी",
+    "logout": "लॉगआउट"
+  },
+  "language": {
+    "en": "इंग्रजी",
+    "hi": "हिंदी",
+    "mr": "मराठी"
+  },
+  "user_type": {
+    "farmer": "शेतकरी",
+    "shopkeeper": "दुकानदार",
+    "switch_to": "{{type}} वर स्विच करा"
+  },
+  "home": {
+    "welcome": "किसानधन मध्ये आपले स्वागत आहे",
+    "subtitle": "शेतकऱ्यांना रिअल-टाइम बाजार माहितीसह सक्षम करणे",
+    "get_started": "सुरू करा",
+    "features": {
+      "title": "मुख्य वैशिष्ट्ये",
+      "price_comparison": {
+        "title": "किंमत तुलना",
+        "description": "माहितीपूर्ण विक्री निर्णय घेण्यासाठी रिअल-टाइम बाजार किंमतींची एमएसपीसह तुलना करा"
+      },
+      "msp_info": {
+        "title": "एमएसपी माहिती",
+        "description": "सर्व पिकांसाठी नवीनतम किमान आधार किंमत मिळवा"
+      },
+      "procurement": {
+        "title": "जवळील खरेदी केंद्रे",
+        "description": "सर्वोत्तम किंमतीला आपली पिके विकण्यासाठी जवळील केंद्रे शोधा"
+      },
+      "deadlines": {
+        "title": "विक्री मुदत",
+        "description": "पीक विक्रीच्या महत्त्वाच्या मुदती कधीही चुकू नका"
+      }
+    }
+  },
+  "price_comparison": {
+    "title": "किंमत तुलना",
+    "select_crop": "पीक निवडा",
+    "market_price": "सध्याची बाजार किंमत",
+    "msp": "किमान आधार किंमत",
+    "difference": "फरक",
+    "recommendation": "शिफारस",
+    "sell": "विक्री करण्याची चांगली वेळ",
+    "wait": "थांबण्याचा विचार करा",
+    "last_updated": "शेवटचे अपडेट"
+  },
+  "msp_information": {
+    "title": "एमएसपी माहिती",
+    "subtitle": "सरकारने जाहीर केलेल्या नवीनतम किमान आधार किंमती",
+    "crop": "पीक",
+    "current_msp": "सध्याची एमएसपी (₹/क्विंटल)",
+    "previous_msp": "मागील एमएसपी (₹/क्विंटल)",
+    "increase": "वाढ (%)",
+    "effective_date": "प्रभावी तारीख"
+  },
+  "procurement_centers": {
+    "title": "खरेदी केंद्रे",
+    "subtitle": "आपली पिके विकण्यासाठी जवळील केंद्रे शोधा",
+    "search": "स्थानानुसार शोधा",
+    "distance": "अंतर",
+    "crops_accepted": "स्वीकृत पिके",
+    "current_prices": "सध्याच्या किंमती",
+    "contact": "संपर्क",
+    "directions": "दिशानिर्देश मिळवा",
+    "km_away": "{{distance}} किमी दूर"
+  },
+  "selling_deadlines": {
+    "title": "विक्री मुदत",
+    "subtitle": "पीक विक्रीसाठी महत्त्वाच्या तारखा",
+    "crop": "पीक",
+    "start_date": "प्रारंभ तारीख",
+    "end_date": "अंतिम तारीख",
+    "days_left": "उरलेले दिवस",
+    "status": "स्थिती",
+    "active": "सक्रिय",
+    "upcoming": "येणारे",
+    "expired": "कालबाह्य",
+    "notification": "सूचना सेट करा"
+  },
+  "user_account": {
+    "title": "माझे खाते",
+    "profile": "प्रोफाइल",
+    "preferences": "प्राधान्ये",
+    "saved_centers": "जतन केलेली केंद्रे",
+    "notifications": "सूचना",
+    "name": "नाव",
+    "phone": "फोन",
+    "email": "ईमेल",
+    "location": "स्थान",
+    "preferred_crops": "पसंतीची पिके",
+    "update": "प्रोफाइल अपडेट करा"
+  },
+  "shopkeeper": {
+    "dashboard": {
+      "title": "दुकानदार डॅशबोर्ड",
+      "welcome": "आपल्या डॅशबोर्डवर आपले स्वागत आहे",
+      "manage_shops": "दुकाने व्यवस्थापित करा",
+      "manage_crops": "पिके व्यवस्थापित करा",
+      "view_stats": "आकडेवारी पहा"
+    },
+    "add_shop": {
+      "title": "नवीन दुकान जोडा",
+      "shop_name": "दुकानाचे नाव",
+      "address": "पत्ता",
+      "contact": "संपर्क क्रमांक",
+      "description": "वर्णन",
+      "crops_accepted": "स्वीकृत पिके",
+      "add_shop": "दुकान जोडा"
+    },
+    "manage_crops": {
+      "title": "पिके व्यवस्थापित करा",
+      "add_crop": "नवीन पीक जोडा",
+      "crop_name": "पिकाचे नाव",
+      "current_price": "सध्याची किंमत (₹/क्विंटल)",
+      "quantity_available": "उपलब्ध प्रमाण (क्विंटल)",
+      "update_price": "किंमत अपडेट करा",
+      "save": "बदल जतन करा"
+    }
+  },
+  "admin": {
+    "title": "अॅडमिन डॅशबोर्ड",
+    "users": "वापरकर्ते",
+    "shops": "दुकाने",
+    "crops": "पिके",
+    "reports": "अहवाल",
+    "settings": "सेटिंग्ज"
+  },
+  "auth": {
+    "login": {
+      "title": "लॉगिन",
+      "email": "ईमेल",
+      "password": "पासवर्ड",
+      "remember": "मला लक्षात ठेवा",
+      "submit": "लॉगिन",
+      "forgot": "पासवर्ड विसरलात?",
+      "no_account": "खाते नाही?",
+      "register": "नोंदणी करा"
+    },
+    "register": {
+      "title": "नोंदणी",
+      "name": "पूर्ण नाव",
+      "email": "ईमेल",
+      "phone": "फोन नंबर",
+      "password": "पासवर्ड",
+      "confirm_password": "पासवर्डची पुष्टी करा",
+      "user_type": "मी एक",
+      "terms": "मी नियम आणि अटींशी सहमत आहे",
+      "submit": "नोंदणी",
+      "have_account": "आधीपासूनच खाते आहे?",
+      "login": "लॉगिन"
+    }
+  },
+  "footer": {
+    "about": "आमच्याबद्दल",
+    "contact": "संपर्क",
+    "privacy": "गोपनीयता धोरण",
+    "terms": "सेवा अटी",
+    "copyright": "© 2025 किसानधन. सर्व हक्क राखीव."
+  }
+}
