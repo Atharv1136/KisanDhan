@@ -20,15 +20,12 @@
 4️⃣ **Sell your crops at the best price** 💵
 
 ## 🛠️ Tech Stack
-- **Frontend:** HTML, CSS, JavaScript, React ⚛️
-- **Backend:** Node.js, Express.js 🚀
-- **Database:** MongoDB 🍃
-- **APIs:** Real-time price & market data integration 🌍
+- **Frontend:** Vite ⚡, React ⚛️, TypeScript 🏗️, Tailwind CSS 🎨
 
 ## 📂 Installation & Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/kisandhan.git
+   git clone https://github.com/Atharv1136/KisanDhan.git
    ```
 2. Navigate to the project folder:
    ```bash
@@ -40,7 +37,7 @@
    ```
 4. Start the development server:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ## 🤝 Contributors
