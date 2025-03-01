@@ -12,8 +12,11 @@
 
 ## 🚀 How It Works
 1️⃣ **Enter your crop details** 🌱
+
 2️⃣ **View real-time price updates** 📢
+
 3️⃣ **Find the best market & procurement center** 🏪
+
 4️⃣ **Sell your crops at the best price** 💵
 
 ## 🛠️ Tech Stack
