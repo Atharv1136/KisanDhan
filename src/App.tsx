@@ -53,5 +53,21 @@ function App() {
             <Route path="/shopkeeper" element={<ShopkeeperDashboard />} />
             <Route path="/shopkeeper/add-shop" element={<AddShop />} />
             <Route path="/shopkeeper/manage-crops" element={<ManageCrops />} />
-            
+
+             {/* Common Routes */}
+            <Route path="/account" element={<UserAccount />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/404" element={<NotFound />} />
+            <Route path="*" element={<Navigate to="/404" replace />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
+}
+
+export default App;
            
