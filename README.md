@@ -51,3 +51,7 @@ We appreciate all contributions and suggestions to improve KISANDHAN! 🚀
 ## 📞 Contact
 For any queries or collaborations, feel free to reach out at **infokisandhan@gmail.com** 📧
 
+## 📜 License
+This project is licensed under the **MIT License** 📝
+
+**KISANDHAN – Smart Farming, Better Earnings! 🌾✨**
