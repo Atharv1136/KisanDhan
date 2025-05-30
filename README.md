@@ -54,3 +54,5 @@ For any queries or collaborations, feel free to reach out at **infokisandhan@gma
 ## 📜 License
 This project is licensed under the **MIT License** 📝
 
+**KISANDHAN – Smart Farming, Better Earnings! 🌾✨**
+
