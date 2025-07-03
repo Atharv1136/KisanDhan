@@ -1,16 +1,7 @@
-import { functions } from './firebase';
-import { httpsCallable } from 'firebase/functions';
+import { geminiService } from './geminiService';
 
-// Types for AI service responses
-export interface DiseaseAnalysisResult {
-  disease: string;
-  confidence: number;
-  severity: 'low' | 'medium' | 'high';
-  treatment: string[];
-  prevention: string[];
-  expectedLoss: string;
-  urgency: 'immediate' | 'within_week' | 'monitor';
-}
+// Re-export types and services for backward compatibility
+export type { DiseaseAnalysisResult } from './geminiService';
 
 export interface MarketAnalysisResult {
   currentPrice: number;
@@ -36,111 +27,82 @@ export interface GovernmentScheme {
 }
 
 class AIService {
-  // Crop Disease Diagnosis
-  async analyzeCropDisease(imageFile: File): Promise<DiseaseAnalysisResult> {
-    try {
-      // Convert image to base64
-      const base64Image = await this.fileToBase64(imageFile);
-      
-      // Call Firebase Function that uses Vertex AI Gemini
-      const analyzeDiseaseFunction = httpsCallable(functions, 'analyzeCropDisease');
-      const result = await analyzeDiseaseFunction({ image: base64Image });
-      
-      return result.data as DiseaseAnalysisResult;
-    } catch (error) {
-      console.error('Disease analysis error:', error);
-      throw new Error('Failed to analyze crop disease');
-    }
+  // Crop Disease Diagnosis using Gemini
+  async analyzeCropDisease(imageFile: File) {
+    return await geminiService.analyzeCropDisease(imageFile);
   }
 
-  // Market Intelligence
+  // Get crop advice using Gemini
+  async getCropAdvice(query: string): Promise<string> {
+    return await geminiService.getCropAdvice(query);
+  }
+
+  // Market Intelligence (mock implementation for now)
   async getMarketAnalysis(crop: string, location: string): Promise<MarketAnalysisResult> {
     try {
-      const marketAnalysisFunction = httpsCallable(functions, 'getMarketAnalysis');
-      const result = await marketAnalysisFunction({ crop, location });
+      // Get AI insights about the market
+      const insights = await geminiService.getMarketInsights(crop, location);
       
-      return result.data as MarketAnalysisResult;
+      // For now, return mock data with AI insights
+      // In production, this would integrate with real market APIs
+      return {
+        currentPrice: Math.floor(Math.random() * 1000) + 2000,
+        trend: ['rising', 'falling', 'stable'][Math.floor(Math.random() * 3)] as any,
+        prediction: insights,
+        optimalSellingTime: 'Based on current trends, consider selling within the next 7-10 days',
+        nearbyMarkets: [
+          { name: `${location} APMC`, price: Math.floor(Math.random() * 100) + 2200, distance: 15 },
+          { name: `${location} Mandi`, price: Math.floor(Math.random() * 100) + 2150, distance: 25 },
+          { name: 'Regional Market', price: Math.floor(Math.random() * 100) + 2180, distance: 35 }
+        ]
+      };
     } catch (error) {
       console.error('Market analysis error:', error);
       throw new Error('Failed to get market analysis');
     }
   }
 
-  // Government Scheme Navigator
-  async findGovernmentSchemes(
-    farmerProfile: {
-      crops: string[];
-      landSize: number;
-      location: string;
-      income: number;
-    }
-  ): Promise<GovernmentScheme[]> {
-    try {
-      const findSchemesFunction = httpsCallable(functions, 'findGovernmentSchemes');
-      const result = await findSchemesFunction({ farmerProfile });
-      
-      return result.data as GovernmentScheme[];
-    } catch (error) {
-      console.error('Scheme search error:', error);
-      throw new Error('Failed to find government schemes');
-    }
+  // Government Scheme Navigator (mock implementation)
+  async findGovernmentSchemes(farmerProfile: {
+    crops: string[];
+    landSize: number;
+    location: string;
+    income: number;
+  }): Promise<GovernmentScheme[]> {
+    // This would integrate with government APIs in production
+    return [
+      {
+        name: "PM-KISAN Samman Nidhi",
+        description: "Direct income support to farmers with cultivable land holding",
+        eligibility: [
+          "Small and marginal farmers",
+          "Cultivable land holding",
+          "Valid Aadhaar card"
+        ],
+        benefits: "₹6,000 per year in three equal installments",
+        applicationProcess: [
+          "Visit PM-KISAN portal",
+          "Fill registration form",
+          "Upload required documents",
+          "Submit application"
+        ],
+        documents: ["Aadhaar Card", "Land Records", "Bank Account Details"],
+        deadline: "2025-12-31",
+        applicationLink: "https://pmkisan.gov.in"
+      }
+    ];
   }
 
-  // Voice Processing
+  // Voice Processing (placeholder)
   async processVoiceQuery(audioBlob: Blob, language: string = 'en'): Promise<string> {
-    try {
-      // Convert audio to base64
-      const base64Audio = await this.blobToBase64(audioBlob);
-      
-      const processVoiceFunction = httpsCallable(functions, 'processVoiceQuery');
-      const result = await processVoiceFunction({ 
-        audio: base64Audio, 
-        language 
-      });
-      
-      return result.data as string;
-    } catch (error) {
-      console.error('Voice processing error:', error);
-      throw new Error('Failed to process voice query');
-    }
+    // This would integrate with speech-to-text and then process with Gemini
+    return "Voice processing feature will be available soon. Please use text input for now.";
   }
 
-  // Text to Speech
+  // Text to Speech (placeholder)
   async textToSpeech(text: string, language: string = 'en'): Promise<string> {
-    try {
-      const textToSpeechFunction = httpsCallable(functions, 'textToSpeech');
-      const result = await textToSpeechFunction({ text, language });
-      
-      return result.data as string; // Returns audio URL
-    } catch (error) {
-      console.error('Text to speech error:', error);
-      throw new Error('Failed to convert text to speech');
-    }
-  }
-
-  // Utility functions
-  private fileToBase64(file: File): Promise<string> {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        const base64 = reader.result as string;
-        resolve(base64.split(',')[1]); // Remove data:image/jpeg;base64, prefix
-      };
-      reader.onerror = error => reject(error);
-    });
-  }
-
-  private blobToBase64(blob: Blob): Promise<string> {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(blob);
-      reader.onload = () => {
-        const base64 = reader.result as string;
-        resolve(base64.split(',')[1]);
-      };
-      reader.onerror = error => reject(error);
-    });
+    // This would integrate with text-to-speech services
+    return "data:audio/wav;base64,"; // Placeholder
   }
 }
 
