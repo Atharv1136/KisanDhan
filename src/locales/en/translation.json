@@ -3,6 +3,7 @@
   "tagline": "Smart Agriculture Platform",
   "nav": {
     "home": "Home",
+    "ai_assistant": "AI Assistant",
     "price_comparison": "Price Comparison",
     "msp_information": "MSP Information",
     "procurement_centers": "Procurement Centers",
@@ -23,9 +24,35 @@
     "shopkeeper": "Shopkeeper",
     "switch_to": "Switch to {{type}}"
   },
+  "ai_assistant": {
+    "title": "AI Agricultural Assistant",
+    "subtitle": "Your personal agronomist powered by advanced AI",
+    "disease_analyzer": {
+      "title": "Crop Disease Analyzer",
+      "description": "Upload crop photos for instant AI-powered disease diagnosis",
+      "indian_names": "Indian Names",
+      "hindi_name": "Hindi Name",
+      "local_names": "Regional Names",
+      "organic_treatment": "Organic Treatment",
+      "chemical_treatment": "Chemical Treatment",
+      "prevention": "Prevention Tips"
+    },
+    "voice_assistant": {
+      "title": "Voice Assistant",
+      "description": "Ask questions using voice commands in your local language"
+    },
+    "market_analysis": {
+      "title": "Smart Market Analysis",
+      "description": "Get AI-powered market insights and price predictions"
+    },
+    "scheme_navigator": {
+      "title": "Government Scheme Navigator",
+      "description": "Find and apply for relevant government schemes"
+    }
+  },
   "home": {
     "welcome": "Welcome to KisanDhan",
-    "subtitle": "Empowering farmers with real-time market information",
+    "subtitle": "Empowering farmers with real-time market information and AI technology",
     "get_started": "Get Started",
     "features": {
       "title": "Key Features",

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Camera, Upload, Loader, AlertTriangle, CheckCircle, Clock, Info, Zap } from 'lucide-react';
+import { Camera, Upload, Loader, AlertTriangle, CheckCircle, Clock, Info, Zap, Globe, Leaf } from 'lucide-react';
 import Webcam from 'react-webcam';
 import { geminiService, DiseaseAnalysisResult } from '../../services/geminiService';
 
@@ -104,7 +104,7 @@ const CropDiseaseAnalyzer: React.FC = () => {
             <Zap className="h-6 w-6 mr-2" />
             <h2 className="text-2xl font-bold">AI Crop Disease Analyzer</h2>
           </div>
-          <p className="text-green-100">Powered by Google Gemini AI - Upload or capture a photo of your crop for instant disease diagnosis</p>
+          <p className="text-green-100">Powered by Google Gemini AI - Upload or capture a photo of your crop for instant disease diagnosis with Indian context</p>
         </div>
 
         <div className="p-6">
@@ -253,7 +253,7 @@ const CropDiseaseAnalyzer: React.FC = () => {
                 </button>
               </div>
 
-              {/* Disease Identification */}
+              {/* Disease Identification with Indian Names */}
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="text-xl font-semibold text-gray-900">Disease Identified</h4>
@@ -263,32 +263,68 @@ const CropDiseaseAnalyzer: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
                   <div>
-                    <div className="text-sm text-gray-500">Disease/Condition</div>
+                    <div className="text-sm text-gray-500">English Name</div>
                     <div className="text-lg font-medium text-gray-900">{result.disease}</div>
                   </div>
                   <div>
                     <div className="text-sm text-gray-500">AI Confidence</div>
                     <div className="text-lg font-medium text-gray-900">{(result.confidence * 100).toFixed(1)}%</div>
                   </div>
+                </div>
+
+                {/* Indian Names Section */}
+                <div className="bg-orange-50 border-l-4 border-orange-400 p-4 mb-4">
+                  <div className="flex items-start">
+                    <Globe className="h-5 w-5 text-orange-600 mr-2 mt-0.5" />
+                    <div className="flex-1">
+                      <h5 className="font-medium text-orange-900 mb-2">Indian Names / भारतीय नाम</h5>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <div className="text-xs text-orange-700">Hindi / हिंदी</div>
+                          <div className="font-medium text-orange-800">{result.hindiName}</div>
+                        </div>
+                        <div>
+                          <div className="text-xs text-orange-700">Common Indian Name</div>
+                          <div className="font-medium text-orange-800">{result.indianName}</div>
+                        </div>
+                      </div>
+                      {result.localNames.length > 0 && (
+                        <div className="mt-3">
+                          <div className="text-xs text-orange-700 mb-1">Regional Names / क्षेत्रीय नाम</div>
+                          <div className="flex flex-wrap gap-2">
+                            {result.localNames.map((name, index) => (
+                              <span
+                                key={index}
+                                className="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded-full"
+                              >
+                                {name}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
                     <div className="text-sm text-gray-500">Severity Level</div>
                     <span className={`inline-flex px-3 py-1 text-sm font-semibold rounded-full border ${getSeverityColor(result.severity)}`}>
                       {result.severity.toUpperCase()}
                     </span>
                   </div>
+                  <div>
+                    <div className="text-sm text-gray-500">Expected Loss if Untreated</div>
+                    <div className="text-sm font-medium text-gray-900">{result.expectedLoss}</div>
+                  </div>
                 </div>
 
-                <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-4">
+                <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
                   <h5 className="font-medium text-blue-900 mb-2">Description</h5>
                   <p className="text-blue-800 text-sm">{result.description}</p>
-                </div>
-
-                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
-                  <div className="text-sm text-yellow-700">
-                    <strong>Expected Loss if Untreated:</strong> {result.expectedLoss}
-                  </div>
                 </div>
               </div>
 
@@ -319,13 +355,52 @@ const CropDiseaseAnalyzer: React.FC = () => {
                 </div>
               </div>
 
-              {/* Treatment Recommendations */}
-              <div className="bg-green-50 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Treatment Recommendations</h4>
+              {/* Treatment Recommendations - Organic and Chemical */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Organic Treatment */}
+                <div className="bg-green-50 rounded-lg p-6">
+                  <div className="flex items-center mb-4">
+                    <Leaf className="h-5 w-5 text-green-600 mr-2" />
+                    <h4 className="text-lg font-semibold text-gray-900">Organic Treatment / जैविक उपचार</h4>
+                  </div>
+                  <div className="space-y-3">
+                    {result.organicTreatment.map((treatment, index) => (
+                      <div key={index} className="flex items-start">
+                        <div className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0">
+                          {index + 1}
+                        </div>
+                        <span className="text-gray-700">{treatment}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Chemical Treatment */}
+                <div className="bg-red-50 rounded-lg p-6">
+                  <div className="flex items-center mb-4">
+                    <Zap className="h-5 w-5 text-red-600 mr-2" />
+                    <h4 className="text-lg font-semibold text-gray-900">Chemical Treatment / रासायनिक उपचार</h4>
+                  </div>
+                  <div className="space-y-3">
+                    {result.chemicalTreatment.map((treatment, index) => (
+                      <div key={index} className="flex items-start">
+                        <div className="bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0">
+                          {index + 1}
+                        </div>
+                        <span className="text-gray-700">{treatment}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Combined Treatment Approach */}
+              <div className="bg-blue-50 rounded-lg p-6">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">Recommended Treatment Approach</h4>
                 <div className="space-y-3">
                   {result.treatment.map((treatment, index) => (
                     <div key={index} className="flex items-start">
-                      <div className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0">
+                      <div className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0">
                         {index + 1}
                       </div>
                       <span className="text-gray-700">{treatment}</span>
@@ -335,12 +410,12 @@ const CropDiseaseAnalyzer: React.FC = () => {
               </div>
 
               {/* Prevention Tips */}
-              <div className="bg-blue-50 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Prevention for Future Crops</h4>
+              <div className="bg-yellow-50 rounded-lg p-6">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">Prevention for Future Crops / भविष्य की फसलों के लिए रोकथाम</h4>
                 <ul className="space-y-2">
                   {result.prevention.map((tip, index) => (
                     <li key={index} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-yellow-600 mr-2 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{tip}</span>
                     </li>
                   ))}
@@ -353,6 +428,7 @@ const CropDiseaseAnalyzer: React.FC = () => {
                   <strong>Disclaimer:</strong> This AI analysis is for informational purposes only. 
                   For critical crop issues, please consult with local agricultural experts or extension officers. 
                   Always test treatments on a small area before applying to entire crops.
+                  स्थानीय कृषि विशेषज्ञों से सलाह अवश्य लें।
                 </p>
               </div>
             </div>

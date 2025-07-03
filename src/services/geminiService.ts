@@ -6,6 +6,9 @@ const genAI = new GoogleGenerativeAI(API_KEY);
 
 export interface DiseaseAnalysisResult {
   disease: string;
+  indianName: string;
+  hindiName: string;
+  localNames: string[];
   confidence: number;
   severity: 'low' | 'medium' | 'high';
   treatment: string[];
@@ -15,6 +18,8 @@ export interface DiseaseAnalysisResult {
   description: string;
   symptoms: string[];
   causes: string[];
+  organicTreatment: string[];
+  chemicalTreatment: string[];
 }
 
 class GeminiService {
@@ -25,44 +30,71 @@ class GeminiService {
       // Convert image to base64
       const base64Image = await this.fileToBase64(imageFile);
       
-      // Create the prompt for crop disease analysis
+      // Create the prompt for crop disease analysis with Indian context
       const prompt = `
-        You are an expert agricultural pathologist and crop disease specialist. Analyze this crop image and provide a comprehensive disease diagnosis.
+        You are an expert agricultural pathologist specializing in Indian crop diseases. Analyze this crop image and provide a comprehensive disease diagnosis with Indian context.
 
         Please analyze the image and provide a detailed response in the following JSON format:
 
         {
-          "disease": "Name of the disease or condition",
+          "disease": "Scientific/English name of the disease",
+          "indianName": "Common Indian name for the disease",
+          "hindiName": "Hindi name of the disease",
+          "localNames": ["Regional names in different Indian languages"],
           "confidence": 0.85,
           "severity": "low|medium|high",
-          "description": "Detailed description of the disease",
+          "description": "Detailed description of the disease in Indian farming context",
           "symptoms": ["List of visible symptoms"],
-          "causes": ["Possible causes of the disease"],
+          "causes": ["Possible causes relevant to Indian climate and farming"],
+          "organicTreatment": [
+            "Traditional/organic treatment method 1",
+            "Organic treatment method 2",
+            "Home remedy or traditional practice"
+          ],
+          "chemicalTreatment": [
+            "Chemical treatment option 1",
+            "Chemical treatment option 2",
+            "Specific fungicide/pesticide names available in India"
+          ],
           "treatment": [
-            "Immediate treatment step 1",
-            "Treatment step 2",
-            "Treatment step 3"
+            "Combined best treatment approach",
+            "Step-by-step treatment process",
+            "Timing and application methods"
           ],
           "prevention": [
-            "Prevention measure 1",
-            "Prevention measure 2",
-            "Prevention measure 3"
+            "Prevention measure suitable for Indian farming",
+            "Seasonal prevention tips",
+            "Traditional prevention methods"
           ],
-          "expectedLoss": "Percentage or description of expected crop loss",
+          "expectedLoss": "Realistic crop loss percentage for Indian conditions",
           "urgency": "immediate|within_week|monitor"
         }
 
-        Guidelines for analysis:
-        1. If you can identify a specific disease, provide the exact name
-        2. If the plant looks healthy, indicate "Healthy Plant" as the disease
-        3. Consider common crop diseases like blight, rust, wilt, mosaic virus, etc.
-        4. Provide practical, locally available treatment options
-        5. Include both organic and chemical treatment options where applicable
-        6. Consider the severity based on the extent of damage visible
-        7. Urgency should be "immediate" for severe infections, "within_week" for moderate, "monitor" for mild
-        8. Expected loss should be realistic (e.g., "5-10%", "20-30%", "Minimal if treated promptly")
+        Guidelines for Indian context analysis:
+        1. Include common Indian names for diseases (e.g., "Tikka disease" for leaf spot, "Jwar" for blight)
+        2. Consider Indian climate conditions (monsoon, humidity, temperature)
+        3. Suggest treatments available in Indian agricultural markets
+        4. Include traditional/organic methods used by Indian farmers
+        5. Consider crop varieties commonly grown in India
+        6. Mention specific Indian brands of pesticides/fungicides when relevant
+        7. Include regional names in languages like Hindi, Marathi, Tamil, Telugu, Gujarati, Punjabi
+        8. Consider Indian farming practices and seasonal patterns
+        9. Suggest locally available organic materials (neem, turmeric, cow urine, etc.)
+        10. Include government scheme references if applicable
 
-        Focus on actionable advice that farmers can implement with commonly available resources.
+        Common Indian disease names to consider:
+        - Tikka disease (Leaf spot)
+        - Jwar/Jhulsa (Blight)
+        - Kala Dhaba (Black spot)
+        - Safed Dhaba (White spot)
+        - Patta Jalna (Leaf burn)
+        - Jad Galan (Root rot)
+        - Phool Galan (Flower rot)
+        - Phal Galan (Fruit rot)
+        - Mosaic (Mosaic virus)
+        - Curl (Leaf curl)
+
+        Focus on practical advice that Indian farmers can implement with locally available resources.
       `;
 
       // Prepare the image data
@@ -91,6 +123,11 @@ class GeminiService {
         // Validate and ensure all required fields are present
         return {
           disease: analysisResult.disease || 'Unknown Condition',
+          indianName: analysisResult.indianName || 'अज्ञात रोग',
+          hindiName: analysisResult.hindiName || 'अज्ञात रोग',
+          localNames: Array.isArray(analysisResult.localNames) 
+            ? analysisResult.localNames 
+            : ['स्थानीय नाम उपलब्ध नहीं'],
           confidence: Math.min(Math.max(analysisResult.confidence || 0.7, 0), 1),
           severity: ['low', 'medium', 'high'].includes(analysisResult.severity) 
             ? analysisResult.severity 
@@ -102,6 +139,12 @@ class GeminiService {
           causes: Array.isArray(analysisResult.causes) 
             ? analysisResult.causes 
             : ['Multiple factors may contribute'],
+          organicTreatment: Array.isArray(analysisResult.organicTreatment) 
+            ? analysisResult.organicTreatment 
+            : ['नीम का तेल छिड़काव', 'गोमूत्र का उपयोग', 'हल्दी पाउडर का प्रयोग'],
+          chemicalTreatment: Array.isArray(analysisResult.chemicalTreatment) 
+            ? analysisResult.chemicalTreatment 
+            : ['उपयुक्त कवकनाशी का प्रयोग', 'स्थानीय कृषि विशेषज्ञ से सलाह लें'],
           treatment: Array.isArray(analysisResult.treatment) 
             ? analysisResult.treatment 
             : ['Consult local agricultural expert'],
@@ -128,11 +171,24 @@ class GeminiService {
     // Create a basic analysis from the text response if JSON parsing fails
     return {
       disease: 'Analysis Completed',
+      indianName: 'विश्लेषण पूर्ण',
+      hindiName: 'विश्लेषण पूर्ण',
+      localNames: ['स्थानीय नाम उपलब्ध नहीं'],
       confidence: 0.75,
       severity: 'medium',
       description: responseText.substring(0, 200) + '...',
       symptoms: ['Visual symptoms detected in the uploaded image'],
       causes: ['Multiple environmental and pathological factors'],
+      organicTreatment: [
+        'नीम का तेल (Neem oil) - 5ml प्रति लीटर पानी में मिलाकर छिड़काव',
+        'गोमूत्र (Cow urine) - 200ml प्रति लीटर पानी में मिलाकर स्प्रे',
+        'हल्दी पाउडर (Turmeric powder) - पानी में घोलकर प्रभावित भाग पर लगाएं'
+      ],
+      chemicalTreatment: [
+        'कॉपर सल्फेट (Copper Sulphate) - 2 ग्राम प्रति लीटर',
+        'मैंकोजेब (Mancozeb) - निर्देशानुसार उपयोग',
+        'स्थानीय कृषि केंद्र से उपयुक्त दवा की सलाह लें'
+      ],
       treatment: [
         'Consult with local agricultural extension officer',
         'Apply appropriate fungicide or pesticide as recommended',
@@ -140,10 +196,10 @@ class GeminiService {
         'Remove affected plant parts if necessary'
       ],
       prevention: [
-        'Use disease-resistant crop varieties',
-        'Maintain proper plant spacing',
-        'Follow crop rotation practices',
-        'Ensure proper irrigation management'
+        'रोग प्रतिरोधी किस्मों का उपयोग (Use disease-resistant varieties)',
+        'उचित दूरी बनाए रखें (Maintain proper plant spacing)',
+        'फसल चक्र अपनाएं (Follow crop rotation)',
+        'सिंचाई प्रबंधन (Proper irrigation management)'
       ],
       expectedLoss: '10-20% if treated promptly',
       urgency: 'within_week'
@@ -153,11 +209,14 @@ class GeminiService {
   async getCropAdvice(query: string): Promise<string> {
     try {
       const prompt = `
-        You are an expert agricultural advisor. A farmer is asking: "${query}"
+        You are an expert agricultural advisor specializing in Indian farming. A farmer is asking: "${query}"
         
-        Provide practical, actionable advice in a conversational tone. Keep the response concise but informative.
-        Focus on solutions that are accessible to small-scale farmers in India.
-        Include specific steps they can take and mention any timing considerations.
+        Provide practical, actionable advice in a conversational tone suitable for Indian farmers. 
+        Include both Hindi and English terms where appropriate.
+        Focus on solutions accessible to small-scale farmers in India.
+        Include specific steps, timing considerations, and local resources.
+        Mention traditional Indian farming practices when relevant.
+        Consider Indian climate, soil conditions, and available resources.
       `;
 
       const result = await this.model.generateContent(prompt);
@@ -172,16 +231,20 @@ class GeminiService {
   async getMarketInsights(crop: string, location: string): Promise<string> {
     try {
       const prompt = `
-        As an agricultural market analyst, provide insights for ${crop} in ${location}.
+        As an agricultural market analyst specializing in Indian markets, provide insights for ${crop} in ${location}.
         
         Include information about:
-        - Current market trends
-        - Seasonal price patterns
-        - Factors affecting prices
-        - Best selling strategies
-        - Nearby market recommendations
+        - Current market trends in Indian mandis
+        - Seasonal price patterns specific to India
+        - Factors affecting prices (monsoon, festivals, government policies)
+        - Best selling strategies for Indian farmers
+        - Nearby APMC markets and mandi recommendations
+        - Government MSP (Minimum Support Price) considerations
+        - Export opportunities from India
+        - Storage and transportation tips for Indian conditions
         
-        Keep the response practical and actionable for farmers.
+        Keep the response practical and actionable for Indian farmers.
+        Include both Hindi and English terms where helpful.
       `;
 
       const result = await this.model.generateContent(prompt);
