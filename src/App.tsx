@@ -16,6 +16,7 @@ import ManageCrops from './pages/shopkeeper/ManageCrops';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import NotFound from './pages/common/NotFound';
+import AIAssistant from './pages/ai/AIAssistant';
 import './i18n';
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            
+            {/* AI Assistant Route */}
+            <Route path="/ai-assistant" element={<AIAssistant />} />
             
             {/* Farmer Routes */}
             <Route path="/price-comparison" element={<PriceComparison />} />
@@ -70,4 +74,3 @@ function App() {
 }
 
 export default App;
-           

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Tractor, Menu, X, Globe, User, LogOut } from 'lucide-react';
+import { Tractor, Menu, X, Globe, User, LogOut, Brain } from 'lucide-react';
 
 interface HeaderProps {
   userType: string | null;
@@ -37,6 +37,7 @@ const Header: React.FC<HeaderProps> = ({ userType, onUserTypeChange }) => {
 
   const farmerLinks = [
     { to: '/', label: t('nav.home') },
+    { to: '/ai-assistant', label: 'AI Assistant', icon: Brain },
     { to: '/price-comparison', label: t('nav.price_comparison') },
     { to: '/msp-information', label: t('nav.msp_information') },
     { to: '/procurement-centers', label: t('nav.procurement_centers') },
@@ -45,6 +46,7 @@ const Header: React.FC<HeaderProps> = ({ userType, onUserTypeChange }) => {
 
   const shopkeeperLinks = [
     { to: '/', label: t('nav.home') },
+    { to: '/ai-assistant', label: 'AI Assistant', icon: Brain },
     { to: '/shopkeeper', label: t('shopkeeper.dashboard.title') },
     { to: '/shopkeeper/add-shop', label: t('shopkeeper.add_shop.title') },
     { to: '/shopkeeper/manage-crops', label: t('shopkeeper.manage_crops.title') }
@@ -71,10 +73,11 @@ const Header: React.FC<HeaderProps> = ({ userType, onUserTypeChange }) => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`hover:text-yellow-300 transition-colors ${
+                className={`hover:text-yellow-300 transition-colors flex items-center ${
                   location.pathname === link.to ? 'text-yellow-300 font-semibold' : ''
                 }`}
               >
+                {link.icon && <link.icon size={16} className="mr-1" />}
                 {link.label}
               </Link>
             ))}
@@ -172,11 +175,12 @@ const Header: React.FC<HeaderProps> = ({ userType, onUserTypeChange }) => {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`hover:text-yellow-300 transition-colors ${
+                  className={`hover:text-yellow-300 transition-colors flex items-center ${
                     location.pathname === link.to ? 'text-yellow-300 font-semibold' : ''
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
+                  {link.icon && <link.icon size={16} className="mr-2" />}
                   {link.label}
                 </Link>
               ))}
