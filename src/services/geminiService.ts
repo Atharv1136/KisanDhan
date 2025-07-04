@@ -208,18 +208,7 @@ class GeminiService {
 
   async getCropAdvice(query: string): Promise<string> {
     try {
-      const prompt = `
-        You are an expert agricultural advisor specializing in Indian farming. A farmer is asking: "${query}"
-        
-        Provide practical, actionable advice in a conversational tone suitable for Indian farmers. 
-        Include both Hindi and English terms where appropriate.
-        Focus on solutions accessible to small-scale farmers in India.
-        Include specific steps, timing considerations, and local resources.
-        Mention traditional Indian farming practices when relevant.
-        Consider Indian climate, soil conditions, and available resources.
-      `;
-
-      const result = await this.model.generateContent(prompt);
+      const result = await this.model.generateContent(query);
       const response = await result.response;
       return response.text();
     } catch (error) {
