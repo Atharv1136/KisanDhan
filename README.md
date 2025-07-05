@@ -123,3 +123,5 @@ This project is licensed under the **MIT License** 📝
 ---
 
 **KISANDHAN – Smart Farming, Better Earnings with AI! 🌾✨🤖**
+
+---
